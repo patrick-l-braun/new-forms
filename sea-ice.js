@@ -9,18 +9,18 @@ let seaIce = [
 let range = Math.max(...seaIce) - Math.min(...seaIce);
 
 let minSeaIce = Math.min(...seaIce);
-function change() {
-  let background = document.getElementById("grid");
-  let text = document.getElementById("text");
-  let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
-  // scale to between 0.25 and 1
-  let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
-  background.style.backgroundColor =
-    "hsl(215, 100%," + seaIcePercentage + "% )";
-  text.textContent = years[i];
-  i = (i + 1) % seaIce.length;
-}
-setInterval(change, 100);
+// function change() {
+//   let background = document.getElementById("grid");
+//   let text = document.getElementById("text");
+//   let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
+//   // scale to between 0.25 and 1
+//   let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
+//   background.style.backgroundColor =
+//     "hsl(215, 100%," + seaIcePercentage + "% )";
+//   text.textContent = years[i];
+//   i = (i + 1) % seaIce.length;
+// }
+// setInterval(change, 100);
 
 let years = [
   1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991,
@@ -28,6 +28,31 @@ let years = [
   2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
   2018, 2019, 2020, 2021, 2022,
 ];
+document.addEventListener("DOMContentLoaded", function () {
+  const value = document.querySelector("#value");
+  const input = document.querySelector("#pi_input");
+  value.textContent = input.value;
+  input.addEventListener("input", (event) => {
+    value.textContent = event.target.value;
+    let background = document.getElementById("grid");
+    let text = document.getElementById("text");
+    let i = input.value - 1979;
+    let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
+    // scale to between 0.25 and 1
+    let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
+    background.style.backgroundColor =
+      "hsl(215, 100%," + seaIcePercentage + "% )";
+    text.textContent = years[i];
+  });
+});
+
+// var slider = document.getElementById("myRange");
+// var output = document.getElementById("demo");
+// output.innerHTML = slider.value;
+
+// slider.oninput = function () {
+//   output.innerHTML = this.value;
+// };
 
 // var slider = document.getElementById("myRange");
 // var output = document.getElementById("demo");
