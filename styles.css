@@ -2,15 +2,18 @@ html,
 body {
   height: 100%;
   margin: 0;
+  font-family: sans-serif;
 }
 #grid {
   display: grid;
   height: 100%;
   width: 100%;
 }
+#grid > div {
+  place-self: center;
+  user-select: none;
+}
 
 #text {
   font-size: 20rem;
-  font-family: sans-serif;
-  place-self: center;
 }
