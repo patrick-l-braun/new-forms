@@ -12,9 +12,9 @@ let minSeaIce = Math.min(...seaIce);
 function change() {
   let background = document.getElementById("grid");
   let text = document.getElementById("text");
-  let proportionOfMaxSeaIce = seaIce[i] / range; // val between 0 and 1
+  let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
   // scale to between 0.25 and 1
-  let seaIcePercentage = (proportionOfMaxSeaIce * 0.75 + 0.25) * 100;
+  let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
   background.style.backgroundColor =
     "hsl(215, 100%," + seaIcePercentage + "% )";
   text.textContent = years[i];
