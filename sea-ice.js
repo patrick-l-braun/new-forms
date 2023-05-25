@@ -32,19 +32,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const value = document.querySelector("#value");
   const input = document.querySelector("#pi_input");
   value.textContent = input.value;
+  updateBackground(input.value);
   input.addEventListener("input", (event) => {
     value.textContent = event.target.value;
-    let background = document.getElementById("grid");
-    let text = document.getElementById("text");
-    let i = input.value - 1979;
-    let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
-    // scale to between 0.25 and 1
-    let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
-    background.style.backgroundColor =
-      "hsl(215, 100%," + seaIcePercentage + "% )";
-    text.textContent = years[i];
+    updateBackground(input.value);
   });
 });
+
+function updateBackground(year) {
+  let background = document.getElementById("grid");
+  let text = document.getElementById("text");
+  let i = year - 1979;
+  let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
+  // scale to between 0.25 and 1
+  let seaIcePercentage = (proportionOfMinSeaIce * 0.75 + 0.25) * 100;
+  background.style.backgroundColor =
+    "hsl(215, 100%," + seaIcePercentage + "% )";
+  text.textContent = years[i];
+}
 
 // var slider = document.getElementById("myRange");
 // var output = document.getElementById("demo");
