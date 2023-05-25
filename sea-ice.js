@@ -31,10 +31,10 @@ let years = [
 document.addEventListener("DOMContentLoaded", function () {
   const value = document.querySelector("#value");
   const input = document.querySelector("#pi_input");
-  value.textContent = input.value;
+  // value.textContent = input.value;
   updateBackground(input.value);
   input.addEventListener("input", (event) => {
-    value.textContent = event.target.value;
+    // value.textContent = event.target.value;
     updateBackground(input.value);
   });
 });
