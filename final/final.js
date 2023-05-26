@@ -1,5 +1,5 @@
 let seaIce = [
-  0.79, 0.75, 1.01, 1.03, 1.15, 0.51, 0.47, 0.75, 0.82, 0.29, 0.55, -0.2, -0.03,
+  0.79, 0.75, 1.01, 1.03, 1.15, 0.91, 0.47, 0.75, 0.82, 0.29, 0.55, -0.2, -0.03,
   0.62, -0.04, 0.33, -0.59, 0.52, -0.08, -0.13, -0.16, -0.04, -0.49, -0.25,
   -0.29, -0.12, -0.76, -0.94, -1.47, -0.73, -0.65, -1.06, -1.28, -1.52, -1.21,
   -1.23, -0.84, -1.32, -1.26, -0.96, -1.51, -1.91, -1.52, -1.04,
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function getColour(i) {
   let proportionOfMinSeaIce = (seaIce[i] - minSeaIce) / range; // val between 0 and 1
   let seaIcePercentage = (proportionOfMinSeaIce * 0.9 + 0.1) * 100;
-  return "hsl(215, 100%," + seaIcePercentage + "% )";
+  return "hsl(215, 55%," + seaIcePercentage + "% )";
 }
 function updateBackground(year) {
   let background = document.getElementById("grid");
